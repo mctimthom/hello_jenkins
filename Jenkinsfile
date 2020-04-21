@@ -16,7 +16,9 @@ pipeline {
             echo 'This will always run'
         }
         success {
-            echo 'This will run only if successful'
+            emailext body: '$DEFAULT_CONTENT',
+            subject: '$DEFAULT_SUBJECT',
+            to: '$DEFAULT_RECIPIENTS'
         }
         failure {
             echo 'This will run only if failed'
